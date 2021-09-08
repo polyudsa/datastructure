@@ -1,11 +1,11 @@
 from Array import Array
 
 # Create a new array: [1, 2, 3, 4, 5]
-a = Array([1, 2, 3, 4, 5], CAPACITY=7)
+a = Array([1, 2, 3, 4, 5], capacity=7)
 print('Origin array is: ')
 print(a.data)
 print('Logical size is: ', a.logical_size)
-print('Physical size is ', a.CAPACITY)
+print('Physical size is ', a.capacity)
 
 
 print('\n+++++++++++++++++++++++')
@@ -18,7 +18,7 @@ print('Before: ', a.data)
 a.insert(5, 0)
 print('After:  ', a.data)
 print('Logical size is: ', a.logical_size)
-print('Physical size is ', a.CAPACITY)
+print('Physical size is ', a.capacity)
 
 # Insert 9 at the tail
 print('\nInsert 9 at the tail')
@@ -26,7 +26,7 @@ print('Before: ', a.data)
 a.insert(9, 6)
 print('After:  ', a.data)
 print('Logical size is: ', a.logical_size)
-print('Physical size is ', a.CAPACITY)
+print('Physical size is ', a.capacity)
 
 # Double the capacity if the capacity is full at the time of insertion
 print('\nDouble the capacity if the capacity is full at the time of insertion')
@@ -35,7 +35,7 @@ print('Before: ', a.data)
 a.insert(10, 7)
 print('After:  ', a.data)
 print('Logical size is: ', a.logical_size)
-print('Physical size is ', a.CAPACITY)
+print('Physical size is ', a.capacity)
 
 
 print('\n++++++++++++++++++++++++')
@@ -48,7 +48,7 @@ print('Before: ', a.data)
 a.delete(0)
 print('After:  ', a.data)
 print('Logical size is: ', a.logical_size)
-print('Physical size is ', a.CAPACITY)
+print('Physical size is ', a.capacity)
 
 # Delete the tail
 print('\nDelete the tail')
@@ -56,7 +56,7 @@ print('Before: ', a.data)
 a.delete(6)
 print('After:  ', a.data)
 print('Logical size is: ', a.logical_size)
-print('Physical size is ', a.CAPACITY)
+print('Physical size is ', a.capacity)
 
 # When logical size <= capacity // 4, reducing the capacity to one-half
 print('\nWhen logical size <= capacity // 4, reducing the capacity to one-half')
@@ -66,4 +66,4 @@ print('Before: ', a.data)
 a.delete(0)
 print('After:  ', a.data)
 print('Logical size is: ', a.logical_size)
-print('Physical size is ', a.CAPACITY)
+print('Physical size is ', a.capacity)

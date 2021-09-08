@@ -3,20 +3,20 @@ class Array(object):
     
     Args:
     - values: list, the values of array
-    - CAPACITY: int, the capacity of array
-    - FILL_VALUE: the default value of array
+    - capacity: int, the capacity of array
+    - fill_value: the default value of array
         
     Attributes:
     - data: list, the data of array
     - logical_size: int, the logical size of array, start from 1
-    - CAPACITY: int, the physical size of array, start from 1
+    - capacity: int, the physical size of array, start from 1
     '''
 
-    def __init__(self, values=None, CAPACITY=10, FILL_VALUE=None):
+    def __init__(self, values=None, capacity=10, fill_value=None):
         # O(n)
         self.data = list()
-        for count in range(CAPACITY):
-            self.data.append(FILL_VALUE)
+        for count in range(capacity):
+            self.data.append(fill_value)
         if values is not None:
             for i, value in enumerate(values):             # O(n)
                 self.data[i] = value
@@ -24,7 +24,7 @@ class Array(object):
         else:
             self.logical_size = 0            # the logical size of array
             
-        self.CAPACITY = CAPACITY            # the physical size of array
+        self.capacity = capacity            # the physical size of array
         
     def print_array(self):
         # O(n)
@@ -34,20 +34,20 @@ class Array(object):
     def append(self):
         # O(n)
         # when the array is full, double the capacity
-        temp = Array(None, self.CAPACITY*2)
+        temp = Array(None, self.capacity*2)
         for i in range(self.logical_size):                   # O(n)
             temp.data[i] = self.data[i]
         self.data = temp.data
-        self.CAPACITY = temp.CAPACITY
+        self.capacity = temp.capacity
         
     def subtract(self):
         # O(n)
         # when logical size <= capacity // 4, reducing the capacity to one-half
-        temp = Array(None, self.CAPACITY//2)
+        temp = Array(None, self.capacity//2)
         for i in range(self.logical_size):                   # O(n)
             temp.data[i] = self.data[i]
         self.data = temp.data
-        self.CAPACITY = temp.CAPACITY
+        self.capacity = temp.capacity
         
     def insert(self, new_item, target_index):
         # O(n)
@@ -58,7 +58,7 @@ class Array(object):
         - target_index: int, the target index of new item, start from 0
         '''
         # when the array is full, double the capacity
-        if self.CAPACITY = self.logical_size:
+        if self.capacity = self.logical_size:
             self.append()                                   # O(n)
         for i in range(self.logical_size, target_index, -1):  # O(n)
             self.data[i] = self.data[i-1]
@@ -81,7 +81,7 @@ class Array(object):
         self.logical_size -= 1
         
         # when logical size <= capacity // 4, reducing the capacity to one-half
-        if  self.logical_size <= self.CAPACITY// 4:  
+        if  self.logical_size <= self.capacity// 4:  
             self.subtract()                                 # O(n)
             
     def array_max(self):
