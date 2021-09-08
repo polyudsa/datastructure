@@ -1,7 +1,11 @@
 from Array import Array
 
 # Create a new array: [1, 2, 3, 4, 5]
-a = Array([1, 2, 3, 4, 5], capacity=7)
+test_list = [1, 2, 3, 4, 5]
+a = Array(test_list, capacity=test_list.__len__())
+assert test_list==a.data
+assert test_list.__len__()==a.capacity==a.logical_size
+
 print('Origin array is: ')
 print(a.data)
 print('Logical size is: ', a.logical_size)

@@ -58,7 +58,7 @@ class Array(object):
         - target_index: int, the target index of new item, start from 0
         '''
         # when the array is full, double the capacity
-        if self.capacity = self.logical_size:
+        if self.capacity == self.logical_size:
             self.append()                                   # O(n)
         for i in range(self.logical_size, target_index, -1):  # O(n)
             self.data[i] = self.data[i-1]
