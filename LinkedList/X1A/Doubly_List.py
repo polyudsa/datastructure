@@ -1,3 +1,20 @@
+class Doubly_Node:
+    ''' Implementation of Doubly Node
+    
+    Args:
+    - initData: initiate data of a node
+        
+    Attributes:
+    - data: the data of the node
+    - next: the pointer that points to the next node
+    - prev: the pointer that points to the previous node
+    '''
+    def __init__(self, initData):
+        self.data = initData
+        self.next = None
+        self.prev = None
+        
+
 class Doubly_List:
     ''' Implementation of doubly linked list
     
