@@ -9,7 +9,7 @@ mylist.insert_first(1)
 mylist.insert_first(0)
 print('The list is:')
 mylist.print_list()
-print('Length is: ', mylist.len)
+print('Length is: ', mylist.LEN)
 
 # Insert 30 at index 2
 # [head] 0 -> 1 -> 30 -> 2 -> [None]
