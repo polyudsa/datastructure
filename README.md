@@ -13,3 +13,12 @@ git commit -m "By evil, Add shopping car function"
 
 # 练习目录规范
 按照昵称命名规则去名字自己练习的文件目录
+
+# 测试用例
+## Python
+```python
+test_list = [1, 2, 3, 4, 5]
+a = Array(test_list, capacity=test_list.__len__())
+assert test_list==a.data
+assert test_list.__len__()==a.capacity==a.logical_size
+```
