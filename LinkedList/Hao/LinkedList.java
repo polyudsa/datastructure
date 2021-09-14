@@ -6,6 +6,10 @@ class LinkedList {
     public LinkedList(String val) {
         value = val;
     }
+    public LinkedList(String val, LinkedList nextNode) {
+        this.value = val;
+        this.next = nextNode;
+    }
     public void add(LinkedList node) {
         if(this.next == null) {
             this.next = node;
@@ -44,6 +48,19 @@ class LinkedList {
         }else {
             LinkedList lastNode = findLast(nodeVal);
             lastNode.next = lastNode.next.next;
+            return true;
         }
+    }
+
+
+}
+class TestClass {
+    public static void main(String[] args) {
+        LinkedList testList = new LinkedList("0",new LinkedList("1"));
+        testList.add(new LinkedList("3"));
+        LinkedList find1 = testList.find("1");
+        boolean delete2 = testList.delete("2");
+        boolean delete4 = testList.delete("3");
+        System.out.println("find1: "+find1.value+" detele2: "+delete2+" delete4: "+delete4);
     }
 }
