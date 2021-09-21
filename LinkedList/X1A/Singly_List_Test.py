@@ -1,48 +1,49 @@
 from Singly_List import Singly_List
 
-# Insert node to the head of Singly Linked List
-# [head] 0 -> 1 -> 2 -> [None]
+def print_list(singly_list):
+    # O(n)
+    current = singly_list.head
+    while current is not None:
+        print(current.data)
+        current = current.next
+            
+def assert_list(test_list, true_list):
+    current = test_list.head
+    i = 0
+    while current is not None:
+        assert current.data == true_list[i]
+        current = current.next
+        i += 1
+            
+# Create a new singly list
 mylist = Singly_List()
-print('Insert node to the head of Singly Linked List')
-mylist.insert_first(2)
-mylist.insert_first(1)
-mylist.insert_first(0)
-print('The list is:')
-mylist.print_list()
-print('Length is: ', mylist.LEN)
+mylist.insert(30, -1)
+mylist.insert(10, -1)
+mylist.insert(70, -1)
+assert_list(mylist, [30, 10, 70])
+print('Create new singly list:')
+print_list(mylist)
 
-# Insert 30 at index 2
-# [head] 0 -> 1 -> 30 -> 2 -> [None]
-print('\nInsert 30 at index 2:')
-mylist.insert(30, 2)
-mylist.print_list()
+# Insert at the head O(1)
+mylist.insert_first(100)
+assert_list(mylist, [100, 30, 10, 70])
+print('\nInsert 100 at the head:')
+print_list(mylist)
 
-# Insert 40 to the head
-# [head] 40 -> 0 -> 1 -> 30 -> 2 -> [None]
-print('\nInsert 40 to the head:')
-mylist.insert(40, 0)
-mylist.print_list()
+# Insert in between O(n)
+mylist.insert(200, 3)
+assert_list(mylist, [100, 30, 10, 200, 70])
+print('\nInsert 200 at index 3:')
+print_list(mylist)
 
-# Insert 50 to the tail
-# [head] 40 -> 0 -> 1 -> 30 -> 2 -> 50 -> [None]
-print('\nInsert 50 to the tail:')
-mylist.insert(50, -1)
-mylist.print_list()
-
-# Delete index 2
-# [head] 40 -> 0 -> 30 -> 2 -> 50 -> [None]
-print('\nDelete index 2:')
+# Delete element in between O(n)
 mylist.delete(2)
-mylist.print_list()
+assert_list(mylist, [100, 30, 200, 70])
+print('\nDelete element at index 2:')
+print_list(mylist)
 
-# Delete the head
-# [head] 0 -> 30 -> 2 -> 50 -> [None]
-print('\nDelete the head:')
-mylist.delete(0)
-mylist.print_list()
-
-# Delete the tail
-# [head] 0 -> 30 -> 2 -> [None]
-print('\nDelete the tail:')
+# Delete element at the tail O(1)
 mylist.delete(-1)
-mylist.print_list()
+assert_list(mylist, [100, 30, 200])
+print('\nDelete element at the tail:')
+print_list(mylist)

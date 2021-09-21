@@ -1,5 +1,5 @@
 class Singly_Node:
-    ''' Implementation of Node
+    ''' Implementation of singly linked list node
     
     Args:
     - init_data: initiate data of a node
@@ -12,25 +12,20 @@ class Singly_Node:
     def __init__(self, init_data):
         self.data = init_data
         self.next = None
-
+        
         
 class Singly_List:
     ''' Implementation of singly linked list
     
     Attributes:
     - head: Singly_Node, the head of Singly_list
-    - LEN: int, the number of nodes
+    - len: int, the number of nodes
     '''
+    
     def __init__(self):
         self.head = None
-        self.LEN = 0
-        
-    def print_list(self):
-        # O(n)
-        current = self.head
-        while current is not None:
-            print(current.data)
-            current = current.next
+        self.len = 0            
+    
     
     def insert_first(self, item):
         # O(1)
@@ -39,10 +34,11 @@ class Singly_List:
         Args:
         - item: the data of new node
         '''
-        new_node = Singly_Node(item)             # 1. create a new node
-        new_node.next = self.head                # 2. connect the new node to the first node 
-        self.head = new_node                     # 3. point the head to the new node
-        self.LEN += 1                            # 4. length plus 1
+        new_node = Singly_Node(item)            # 1. create a new node
+        new_node.next = self.head               # 2. connect the new node to the first node 
+        self.head = new_node                    # 3. point the head to the new node
+        self.len += 1                           # 4. length plus 1
+        
             
     def insert(self, item, target_index):
         # O(n)
@@ -52,12 +48,12 @@ class Singly_List:
         - item: the data of new node
         - target_index: int, the target index of new node
         '''
-        if (target_index > self.LEN) and (self.LEN != 0):
+        if (target_index > self.len) and (self.len != 0):
             raise Exception("Error! The index is out of range")
         elif target_index < 0:
-            if -target_index > self.LEN +1 :
+            if -target_index > self.len +1 :
                 raise Exception("Error! The index is out of range")
-            target_index = target_index + self.LEN + 1
+            target_index = target_index + self.len + 1
             
         # Insert at first
         if target_index == 0:                     
@@ -71,7 +67,8 @@ class Singly_List:
                 predecessor = predecessor.next   # 2. locate the location to insert            
             new_node.next = predecessor.next     # 3. connect the new node with successor
             predecessor.next = new_node          # 4. connect the new node with predecessor
-            self.LEN += 1                        # 4. length plus 1
+            self.len += 1                        # 4. length plus 1
+            
                         
     def delete(self, target_index):
         # O(n)
@@ -80,17 +77,17 @@ class Singly_List:
         Args:
         - target_index: int, the target index of deleting node        
         '''
-        if target_index+1 > self.LEN:
+        if target_index+1 > self.len:
             raise Exception("Error! The index is out of range")
         elif target_index < 0:
-            if -target_index > self.LEN:
+            if -target_index > self.len:
                 raise Exception("Error! The index is out of range")
-            target_index += self.LEN
+            target_index += self.len
             
         # Delete at first
         if target_index == 0:                     
             self.head = self.head.next           # 1. move head to next node
-            self.LEN -= 1                        # 2. length minus 1
+            self.len -= 1                        # 2. length minus 1
             
         # Delete in between
         else:                                    
@@ -98,4 +95,4 @@ class Singly_List:
             for i in range(target_index-1):      # O(n)     
                 predecessor = predecessor.next   # 1. locate the node before deleted node
             predecessor.next = predecessor.next.next # 2. connect the front and back of the deleted node
-            self.LEN -= 1                        # 3. length minus 1
+            self.len -= 1                        # 3. length minus 1
