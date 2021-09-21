@@ -13,6 +13,7 @@ class Stack:
     '''
     
     def __init__(self, LEN=100, FILL_VALUE=None):
+        assert LEN >= 1
         self.data = list()
         self.FILL_VALUE = FILL_VALUE
         for count in range(LEN):
@@ -39,16 +40,23 @@ class Stack:
     def Top(self):
         '''Return the topmost element in the stack without removing it
         '''
-        if self.top == 0:
+        if self.is_empty():
             raise Exception("Error! The stack is empty")
         else:
             return self.data[self.top-1]
 
+        
     def Pop(self):
         '''Extract the top item from the stack
         '''
-        if self.top == 0:
+        if self.is_empty():
             raise Exception("Error! The stack is empty")
         else:
             self.top -= 1
             self.data[self.top] = self.FILL_VALUE
+            
+    def is_empty(self):
+        if self.top == 0:
+            return True
+        else:
+            return False
