@@ -55,6 +55,7 @@ class Stack:
             self.top -= 1
             self.data[self.top] = self.FILL_VALUE
             
+            
     def is_empty(self):
         if self.top == 0:
             return True
