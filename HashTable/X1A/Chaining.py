@@ -17,6 +17,7 @@ class Chaining:
         self.hash_func = hash_func
         self.Hash_Table = {hash_val : []  for hash_val in range(size)}
         
+
     def search(self, x):
         '''Search x in Chaining Hash Table
         
@@ -40,6 +41,7 @@ class Chaining:
         except:
             return (None, None)
         
+        
     def insert(self, x):
         '''Insert x into Chaining Hash Table
         
@@ -53,13 +55,15 @@ class Chaining:
         # Insert X into bucket x_hash at the head
         self.Hash_Table[x_hash].insert(0, x)
         
+
     def delete(self, x):
         '''Delete x from Chaining Hash Table
         
         Args:
         - x: int, the element to be inserted
         '''
+        
         (bucket, idx) = self.search(x)
         if idx is None:
-            raise Exception("Error! X is not is hash table")
+            raise Exception("Error! The element is not in hash table")
         del self.Hash_Table[bucket][idx]
