@@ -32,7 +32,7 @@ class Chaining:
         '''
         
         # Compute the hash value
-        x_hash = self.hash_func(x)
+        x_hash = self.hash_func.cal(x)
         
         # Search the list in bucket x_hash
         try:
@@ -48,7 +48,7 @@ class Chaining:
         '''
         
         # Compute the hash value
-        x_hash = self.hash_func(x)
+        x_hash = self.hash_func.cal(x)
         
         # Insert X into bucket x_hash at the head
         self.Hash_Table[x_hash].insert(0, x)

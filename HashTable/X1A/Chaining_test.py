@@ -1,23 +1,14 @@
 import numpy as np
 from Chaining import Chaining
+from Hash_Function import hash_func
 
 # Define the hash function
-def hash_func(x):
-    '''Implementation of hash function
-    
-    Args:
-    - x: int, divided number
-    
-    Return:
-    - hash_value: int, hash value of x
-    '''
-    
-    return np.mod(2*x+5, 11)
+HF = hash_func(a=2, b=5, mod=11)
 
 
 # Create a Chaining Hash Table
 size = 11
-HT = Chaining(size=size, hash_func=hash_func)
+HT = Chaining(size=size, hash_func=HF)
 
 # Insert new element
 keys = [12, 44, 13, 88, 23, 94, 11, 39, 20, 16]
