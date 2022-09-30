@@ -1,7 +1,7 @@
 /*
  * @author: Zhexuan Gu
  * @Date: 2022-09-28 15:32:35
- * @LastEditTime: 2022-09-28 18:06:53
+ * @LastEditTime: 2022-09-30 15:55:58
  * @FilePath: /CPPprojects/PolyU_DSA_datastructure_database/Sortings/DifferentSortAlgorithms.cpp
  * @Description: Please implement
  */
@@ -144,6 +144,52 @@ namespace gzx_simple_stl{
             QuickSort(left, j - 1);
         if(right - j > 1)
             QuickSort(j + 1, right);
+    }
+
+    template<typename T> 
+    void Sort<T>::Heapify(int index, int nums)
+    {
+        for(int i = index ; i < nums;)
+        {
+            int mmin = i;
+            int left = 2 * i + 1;
+            if(left < nums && unsorted[left] < unsorted[mmin])
+            {
+                mmin = left;
+            }
+            if(left + 1 < nums && unsorted[left + 1] < unsorted[mmin])
+            {
+                mmin = left + 1;
+            }
+            if(mmin == i)
+                break;
+            else
+            {
+                swap(unsorted[i], unsorted[mmin]);
+                i = mmin;
+            }
+        }
+    }
+
+    template<typename T> 
+    void Sort<T>::HeapSort()
+    {
+        int temp = num;
+        int ptr = 0;
+        // initially from the first non-leaf node 
+        for(int i = num / 2 - 1 ; i >= 0 ; i  --)
+        {
+            Heapify(i, temp);
+        }
+        // keep pop out the minimum value and heapify again
+        for(int i = 0 ; i < num ; i ++)
+        {
+            sorted[ptr++] = unsorted[0];
+            swap(unsorted[0], unsorted[temp - 1]);
+            temp --;
+            Heapify(0, temp);
+        }
+        ShowSorted();
     }
 
     template<typename T> 

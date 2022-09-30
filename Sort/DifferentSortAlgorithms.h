@@ -1,7 +1,7 @@
 /*
  * @author: Zhexuan Gu
  * @Date: 2022-09-28 15:32:24
- * @LastEditTime: 2022-09-28 17:47:42
+ * @LastEditTime: 2022-09-30 15:50:47
  * @FilePath: /CPPprojects/PolyU_DSA_datastructure_database/Sortings/DifferentSortAlgorithms.h
  * @Description: Please implement
  */
@@ -39,7 +39,7 @@ namespace gzx_simple_stl{
         void QuickSort(int left, int right);
 
         void HeapSort();
-        void Heapify();
+        void Heapify(int index, int nums);
         
 
         void ShowSorted();
