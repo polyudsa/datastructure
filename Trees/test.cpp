@@ -1,7 +1,7 @@
 /*
  * @author: Zhexuan Gu
  * @Date: 2022-09-23 23:42:05
- * @LastEditTime: 2022-09-25 14:37:44
+ * @LastEditTime: 2022-10-12 11:57:24
  * @FilePath: /CPPprojects/PolyU_DSA_datastructure_database/Trees/test.cpp
  * @Description: Please implement
  */
@@ -21,7 +21,7 @@ void changeTree(TreeNode<char>* &oldroot, TreeNode<char>* newroot)
 
 void test_binarysearch_tree()
 {
-    vector<int> vec{6, 2, 8, 1, 4, 3};
+    vector<int> vec{6, 2, 8, 9, 10, 1, 4, 3, 7};
     BinarySearchTree<int>* bst = new BinarySearchTree<int>(vec);
     TreeNode<int>* root = bst->getRoot();
     // 建立二叉搜索树，并利用中序遍历，可以发现输出了有序的插入数组(就是构造用的那个数组)
@@ -47,7 +47,7 @@ void test_binarysearch_tree()
 
     // 4. 删除
     // 删除前可以先行判断一些这个值有没有在树中
-    data = 4;
+    data = 6;
     if(bst->Search(data))
     {
         bst->DeleteNode(data);

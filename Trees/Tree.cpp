@@ -1,7 +1,7 @@
 /*
  * @author: Zhexuan Gu
  * @Date: 2022-09-23 23:41:15
- * @LastEditTime: 2022-09-24 20:29:25
+ * @LastEditTime: 2022-10-12 11:56:50
  * @FilePath: /CPPprojects/PolyU_DSA_datastructure_database/Trees/Tree.cpp
  * @Description: a implementation of tree
  */
@@ -65,7 +65,7 @@ namespace gzx_simple_datastructure{
         if(root)
         {
             // 先序遍历口诀 根左右
-            cout << root->_data;
+            cout << root->_data << " ";
             preOrderTraverse(root->leftchild);
             preOrderTraverse(root->rightchild);
         }
@@ -77,7 +77,7 @@ namespace gzx_simple_datastructure{
         if(root)
         {
             inOrderTraverse(root->leftchild);
-            cout << root->_data;
+            cout << root->_data << " ";
             inOrderTraverse(root->rightchild);
         }
     }
@@ -89,7 +89,7 @@ namespace gzx_simple_datastructure{
         {
             postOrderTraverse(root->leftchild);
             postOrderTraverse(root->rightchild);
-            cout << root->_data;
+            cout << root->_data << " ";
         }
     }
 

@@ -1,7 +1,7 @@
 /*
  * @author: Zhexuan Gu
  * @Date: 2022-09-23 23:41:59
- * @LastEditTime: 2022-09-25 14:40:38
+ * @LastEditTime: 2022-10-12 11:53:41
  * @FilePath: /CPPprojects/PolyU_DSA_datastructure_database/Trees/BinarySearchTree.cpp
  * @Description: a simple implementation of tree
  */
@@ -71,7 +71,11 @@ namespace gzx_simple_datastructure{
     {
         // simplest case, just delete Node is okay!
         // but first deal with parent node, or maybe in the future some behavior maybe not defined
-        if(parent->leftchild == Node){
+        if(parent == nullptr){
+            //// consider root situation
+            Tree<T>::_root = nullptr;
+        }
+        else if(parent->leftchild == Node){
             parent->leftchild = nullptr;
         }
         else{
@@ -85,7 +89,11 @@ namespace gzx_simple_datastructure{
     {
         //this condition is also simple, we just use the only child to replace Node is okay!
         TreeNode<T>* childNode = Node->leftchild != nullptr ? Node->leftchild : Node->rightchild;
-        if(parent->leftchild == Node)
+        // consider root situation
+        if(parent == nullptr){
+            Tree<T>::_root = childNode;
+        }
+        else if(parent->leftchild == Node)
             parent->leftchild = childNode;
         else parent->rightchild = childNode;
         delete Node;
@@ -108,9 +116,10 @@ namespace gzx_simple_datastructure{
         }
 
         // means the Node's rightchild is the chosen one to replace Node!!
+        // otherwise, according to the while loop above, the rightsubtree should be the left child of tempPtr
         if(tempPtr->rightchild == rightSubTree)
         {
-            tempPtr->rightchild = nullptr;
+            tempPtr->rightchild = rightSubTree->rightchild;
         }
 
         else
