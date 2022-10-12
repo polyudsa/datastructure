@@ -41,7 +41,7 @@ namespace gzx_simple_datastructure{
             else
             {
                 cout << "The element " << data << " has been in the tree, do not insert!" << endl;
-                return nullptr;
+                return root;
             }
         }
         return root;
